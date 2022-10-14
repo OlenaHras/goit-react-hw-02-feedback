@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({ onLeaveFeedback}) => {
     return (
@@ -7,4 +8,8 @@ export const FeedbackOptions = ({ onLeaveFeedback}) => {
             <button type="button" name="bad" onClick={onLeaveFeedback}>Bad</button>
         </>
     )
+}
+
+FeedbackOptions.propTypes = {
+    onLeaveFeedback: PropTypes.func,
 }

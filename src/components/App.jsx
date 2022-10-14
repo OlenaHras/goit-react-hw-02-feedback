@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from "./Section/Section";
 import { Notification } from "./Notification/Notification";
+
 export class App extends Component {
   state = {
     good: 0,
@@ -33,9 +35,7 @@ export class App extends Component {
         this.setState(({good, neutral, bad}) => {
              return { positivePercentage: Math.round( good/(good + neutral + bad)*100) }
          });
-     };
-    //good={this.state.good} neutral={this.state.good} bad={this.state.bad} total={this.state.total} positivePercentage={this.state.positivePercentage}
-    
+     };    
   
   render() {
         return (<div className="Container">
@@ -52,4 +52,3 @@ export class App extends Component {
     }
 };
 
-// export default App;
