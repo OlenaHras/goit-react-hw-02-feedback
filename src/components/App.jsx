@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import { Container } from './App.styled'
+
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from "./Section/Section";
@@ -38,7 +39,7 @@ export class App extends Component {
      };    
   
   render() {
-        return (<div className="Container">
+        return (<Container>
             <Section title="Please leave feedback">
                 <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback}/>
             </Section>
@@ -48,7 +49,7 @@ export class App extends Component {
                     : <Notification message="There is no feedback"/>
                 }
             </Section>    
-        </div>);
+        </Container>);
     }
 };
 
