@@ -6,19 +6,23 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from "./Section/Section";
 import { Notification } from "./Notification/Notification";
 
-export class App extends Component {
-  state = {
+const options = {
     good: 0,
     neutral: 0,
     bad: 0,
+}
+
+export class App extends Component {
+  state = {
+    ...options,
     total: 0,
     positivePercentage: 0,
   }
 
   onLeaveFeedback = (e) => {
-         const buttonName = e.target.name;
-         this.setState(prevState => {
-             return {
+      const buttonName = e.target.name;
+      this.setState(prevState => {
+          return {
                  [buttonName]: prevState[buttonName] + 1
              }
          })
@@ -41,11 +45,11 @@ export class App extends Component {
   render() {
         return (<Container>
             <Section title="Please leave feedback">
-                <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback}/>
+                <FeedbackOptions options={options} onLeaveFeedback={this.onLeaveFeedback}/>
             </Section>
             <Section title="Statistic">
                 {this.state.total
-                    ? <Statistics title="Statistic" good={this.state.good} neutral={this.state.good} bad={this.state.bad} total={this.state.total} positivePercentage={this.state.positivePercentage}/>    
+                    ? <Statistics title="Statistic" good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positivePercentage={this.state.positivePercentage}/>    
                     : <Notification message="There is no feedback"/>
                 }
             </Section>    

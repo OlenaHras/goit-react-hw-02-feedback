@@ -1,14 +1,10 @@
 import PropTypes from 'prop-types';
 import { Button } from "./FeedbackOptions.styled";
 
-export const FeedbackOptions = ({ onLeaveFeedback}) => {
-    return (
-        <>
-            <Button type="button" name="good" onClick={onLeaveFeedback}>Good</Button>
-            <Button type="button" name="neutral" onClick={onLeaveFeedback}>Neutral</Button>
-            <Button type="button" name="bad" onClick={onLeaveFeedback}>Bad</Button>
-        </>
-    )
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+    return Object.keys(options).map(option => {
+              return <Button key={option} type="button" name={option} onClick={onLeaveFeedback}>{option.toUpperCase()}</Button>
+            })  
 }
 
 FeedbackOptions.propTypes = {
